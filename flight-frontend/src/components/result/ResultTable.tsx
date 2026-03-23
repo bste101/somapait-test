@@ -1,5 +1,5 @@
 import type { Passenger } from "../../model/passenger"
-
+import { FaPencilAlt } from "react-icons/fa";
 interface ResultTableProps {
     passengers: Passenger[];
     fileName: string;
@@ -41,7 +41,7 @@ export default function ResultTable({ passengers, fileName, onEdit, onCancel, on
                                     onClick={() => onEdit(i, p)}
                                     className="text-gray-600 hover:text-teal-700"
                                 >
-                                    ✏️
+                                    <FaPencilAlt />
                                 </button>
                             </td>
                             <td className="px-4 py-3 text-teal-700">{p.firstName}</td>

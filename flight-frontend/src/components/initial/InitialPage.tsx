@@ -91,6 +91,7 @@ export default function InitialPage({ onSuccess }: InitialPageProps) {
 
                 <div className={`p-2 flex items-start gap-4 mb-2 ${apiErrors.length > 0 ? 'border-3 border-red-500' : ''}`}>
 
+                    {/* Flight No */}
                     <div className="flex items-center gap-2 ">
                         <label className="text-sm font-medium whitespace-nowrap">
                             Flight no <span className="text-red-500">*</span>
@@ -102,15 +103,14 @@ export default function InitialPage({ onSuccess }: InitialPageProps) {
                                 value={flightNo}
                                 onChange={e => setFlightNo(e.target.value)}
                             />
-                            {hasError('flightNo') && (
-                                <p className="text-red-500 text-sm mt-1">This field is required</p>
-                            )}
-                            {hasError('flightNoFormat') && (
-                                <p className="text-red-500 text-sm mt-1">Invalid flight no format</p>
-                            )}
+                            <p className="text-red-500 text-sm min-h-5">
+                                {hasError('flightNo') && <span>This field is required</span>}
+                                {hasError('flightNoFormat') && <span>Invalid flight no format</span>}
+                            </p>
                         </div>
                     </div>
 
+                    {/* Excel File */}
                     <div className="flex items-center gap-2 flex-1">
                         <label className="text-sm font-medium whitespace-nowrap">
                             Excel file <span className="text-red-500">*</span>
@@ -140,9 +140,9 @@ export default function InitialPage({ onSuccess }: InitialPageProps) {
                                     Browse
                                 </button>
                             </div>
-                            {hasError('file') && (
-                                <p className="text-red-500 text-sm mt-1">This field is required</p>
-                            )}
+                            <p className="text-red-500 text-sm min-h-5">
+                                {hasError('file') && <span>This field is required</span>}
+                            </p>
                         </div>
                     </div>
                 </div>
